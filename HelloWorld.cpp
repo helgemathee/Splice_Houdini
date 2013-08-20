@@ -1,8 +1,9 @@
 #define FEC_STATIC
 #define FECS_STATIC
 
-#include <CreationSplice.h>
+#include <climits>
 #include <iostream>
+#include <CreationSplice.h>
 
 using namespace CreationSplice;
 
