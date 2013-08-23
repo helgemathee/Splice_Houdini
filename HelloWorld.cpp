@@ -1,11 +1,12 @@
 #define FEC_STATIC
 #define FECS_STATIC
 
-#include <climits>
+
 #include <iostream>
 #include <CreationSplice.h>
 
 using namespace CreationSplice;
+using namespace std;
 
 int main( int argc, const char* argv[] )
 {
@@ -15,9 +16,9 @@ int main( int argc, const char* argv[] )
   Node node = Node("myKLEnabledNode");
 
   // create an operator
-  std::string klCode = "";
+  string klCode = "";
   klCode += "operator helloWorldOp() {\n";
-  klCode += "  report('Hello World from KL!');\n";
+  klCode += "  report('Hello varomix from KL!');\n";
   klCode += "}\n";
   node.constructKLOperator("helloWorldOp", klCode.c_str());
 
