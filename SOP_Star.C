@@ -21,6 +21,8 @@ using namespace MIX;
 using namespace CreationSplice;
 using namespace std;
 
+
+
 /// newSopOperator is the hook that Houdini grabs from this dll
 /// and invokes to register the SOP. In this case we add ourselves
 // to the specified operator OP_OperatorTable
@@ -108,6 +110,7 @@ SOP_Star::myConstructor(OP_Network *net, const char *name, OP_Operator *op)
 SOP_Star::SOP_Star(OP_Network *net, const char *name, OP_Operator *op):SOP_Node(net, name, op)
 {
 	myCurrPoint = -1; 		// To prevent garbage values from being returned
+
 }
 
 SOP_Star::~SOP_Star() {}
@@ -147,7 +150,7 @@ OP_ERROR SOP_Star::cookMySop(OP_Context &context)
 	// // evaluate the node
 	node.evaluate();
 
-	Finalize();
+	Finalize();  // end Creation Splice
 
 	switch(plane)
 	{
@@ -219,11 +222,13 @@ OP_ERROR SOP_Star::cookMySop(OP_Context &context)
 
 		// tell the interrupt that we are done, always do it
 		boss->opEnd();
+
 	}
 
 	gdp->notifyCache(GU_CACHE_ALL);
 
 	myCurrPoint = -1;
+
 	return error();
 
 }
